@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  flask-app:
+    build: .
+    environment:
+      - TZ=Europe/Kiev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./storage:/app/storage
+

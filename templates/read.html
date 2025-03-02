@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved messages</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="../static/logo.png" alt="logo" />
+                </a>
+                <div class="collapse navbar-collapse" id="navbarsExample02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/message.html">Send message</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-3">
+        <main class="form-signin w-50 m-auto">
+            <h1 class="h3 mb-3 fw-normal">Messages</h1>
+            <ul class="p-0">
+                {% for timestamp, msg in messages.items() %}
+                <li class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ msg.username }}</h5>
+                                <p class="card-text" style="font-size: 14px; color: #6c757d;">{{ timestamp[:19] }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">{{ msg.message }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <a class="w-100 btn btn-lg btn-outline-primary" href="/message.html">Back</a>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
